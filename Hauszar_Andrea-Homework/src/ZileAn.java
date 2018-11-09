@@ -1,24 +1,18 @@
-import java.util.Scanner;
-
+// total zile in an utilizand metoda creata cu switch
 public class ZileAn {
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		// afisam cate zile are o luna de la 1-12
-//		System.out.print("Luna: ");
-//		int luna = in.nextInt();
 
-		for (int luna = 1; luna <= 12; luna++) {
-			System.out.print(luna + " - "); // syso (luna + " - " lunileInZile(luna));
-			LunileInZile(luna);
+		int suma = 0;
+		for (int months = 1; months <= 12; months++) {
+
+			suma += getDaysOfMonths(months);
+
 		}
-
-//		LunileInZile(luna);
-//am creat switchurile de mai jos in metoda 
+		System.out.println(suma);
 	}
 
-//case poate fi doar numar limitat (nu double, nu long), valori intregi, 
-	private static void LunileInZile(int luna) { // in loc de void punem void
-		switch (luna) {
+	private static int getDaysOfMonths(int months) {
+		switch (months) {
 		case 1:
 		case 3:
 		case 5:
@@ -26,30 +20,19 @@ public class ZileAn {
 		case 8:
 		case 10:
 		case 12:
-			System.out.println("31 Zile"); // sau scriem return 31
-			break;
+			return 31;
 		case 2:
-			System.out.println("28 Zile");
-			break;
+			return 28;
 		case 4:
 		case 6:
 		case 9:
 		case 11:
-			System.out.println("30 Zile");
-			break;
+			return 30;
 		}
-		// mai trebuie sa adaugam si return 0 la final
+		return 0;
 	}
 
-	// Exercitiu
-	// sa adunam zilele lunii - totalZileAn
-	//
-	// for (int luna = 1; luna <=12; luna++)
-	//
-	//
-	//
-
-// nu mai introducem nimic de la tastatura
-// vrem sa ne afiseze toate lunile 1-31, 2-28...
-
 }
+
+// suma o pornim de la valoarea 0
+// in loop adaugam cu ajutorul metodei create 
