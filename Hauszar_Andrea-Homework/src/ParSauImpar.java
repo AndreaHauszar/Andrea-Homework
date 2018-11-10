@@ -8,6 +8,7 @@ public class ParSauImpar {
 		System.out.print("Numar: ");
 		int nr = in.nextInt();
 
+		// si aici era frumoasa o metoda care face asta
 		if (nr % 2 == 0) {
 			System.out.println("Par");
 		} else {
