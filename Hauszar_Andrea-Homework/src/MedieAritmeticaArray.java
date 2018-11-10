@@ -4,12 +4,15 @@ public class MedieAritmeticaArray {
 	public static void main(String[] args) {
 
 		int[] arr = { 1, 2, 0, 3, 4, 5 };
-		float suma = Suma(arr);
+		float suma = Suma(arr); 
 		System.out.println("Suma: " + suma);
 		System.out.println("Medie: " + suma / arr.length);
 
 	}
 
+	// atentie la code conventions la numele metodei! trebuie cu litera mica
+	// de asemenea metoda nu face media ci face suma si media o calculezi in exterior
+	// as vrea o metoda care returneaza direct media
 	private static float Suma(int[] arr) {
 		float suma = 0;
 		for (int i = 0; i < arr.length; i++) {
