@@ -12,6 +12,7 @@ public class NumereNegativeInArray {
 	private static int NegativeCounter(int[] arr) {
 		int negativeCounter = 0;
 		for (int i = 0; i < arr.length; i++) {
+			// se putea scrie un pic mai simplu codul dar in rest e ok
 			if (arr[i] >= 0) {
 				continue;
 			}
