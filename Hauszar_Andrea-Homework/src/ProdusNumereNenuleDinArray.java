@@ -8,9 +8,11 @@ public class ProdusNumereNenuleDinArray {
 		System.out.println("Rezultat multiplicare: " + produs);
 	}
 
+	// atentie la code conventions la numele metodelor
 	private static int Produs(int[] arr) {
 		int produs = 1;
 		for (int i = 0; i < arr.length; i++) {
+			// la fel ca la o problema anterioara se putea scrie un pic mai simplu (adica fara continue) 
 			if (arr[i] == 0) {
 				continue;
 			}
