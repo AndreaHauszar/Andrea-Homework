@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class LowestNumberInArray {
 	public static void main(String[] args) {
-
+		// inteligenta solutie dar as vrea s-o vad implementata intr-o metoda separata, si e discutabil daca e eficienta
 		int[] arr = { 9, 8, 7, 6, 1, 2, 3, 4, 10, 11, 12, 0 };
 		Arrays.sort(arr);
 		System.out.println("Minim = " + arr[0]);
