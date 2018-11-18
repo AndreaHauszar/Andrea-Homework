@@ -1,3 +1,4 @@
+package Teme2;
 // total zile in an utilizand metoda creata cu switch
 public class ZileAn {
 	public static void main(String[] args) {
