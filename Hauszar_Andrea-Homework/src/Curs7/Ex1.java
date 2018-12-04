@@ -2,14 +2,17 @@
 
 package Curs7;
 
-public class Ex1 {
+import sessions.s07.tests.Division;
+
+public class Ex1 implements Division {
 	public static void main(String[] args) {
 		Ex1 e = new Ex1();
-		System.out.println(e.division(8, 5));
+		System.out.println(e.divide(8, 5));
 
 	}
 
-	private int division(int a, int b) {
+	@Override
+	public int divide(int a, int b) {
 
 		if (b == 0) {
 			return -1;
@@ -18,4 +21,10 @@ public class Ex1 {
 		return a / b;
 
 	}
+
+	@Override
+	public String getAuthor() {
+		return "Andrea";
+	}
+
 }
