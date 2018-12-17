@@ -8,11 +8,11 @@ public class CMMMC {
 
 		int a = 2;
 		int b = 7;
-
+		System.out.println(findCmmmc(a, b));
 		findCmmmc(a, b);
 	}
 
-	private static void findCmmmc(int a, int b) {
+	private static int findCmmmc(int a, int b) {
 		int cmmmc = (a > b) ? a : b;
 		while (true) {
 			if (cmmmc % a == 0 && cmmmc % b == 0) {
@@ -21,7 +21,7 @@ public class CMMMC {
 			cmmmc++;
 
 		}
-		System.out.println(cmmmc);
+		return cmmmc;
 	}
 
 }

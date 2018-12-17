@@ -13,16 +13,26 @@ public class Medii {
 		Student st2 = new Student("Sigmund", 7, 10);
 		Student st3 = new Student("Freud", 3, 9);
 
-		double mediaStudent1 = st1.getMedia();
+		Student[] studenti = { st1, st2, st3 };
 
-		double mediaStudent2 = st2.getMedia();
+		Student x;
 
-		double mediaStudent3 = st3.getMedia();
+		for (int i = 0; i < studenti.length; i++) {
+			for (int j = 1; j < (studenti.length - i); j++) {
+				if (studenti[j - 1].getMedia() > studenti[j].getMedia()) {
 
-		// am printat asa sa vad daca merge - pana aici merge :)
-		System.out.println(mediaStudent1);
-		System.out.println(mediaStudent2);
-		System.out.println(mediaStudent3);
+					x = studenti[j - 1];
+					studenti[j - 1] = studenti[j];
+					studenti[j] = x;
+
+				}
+			}
+		}
+
+		for (int i = 0; i < studenti.length; i++) {
+			System.out.println("Nume: " + studenti[i].getName() + "\n" + "Media: " + studenti[i].getMedia());
+		}
+
 	}
 
 }

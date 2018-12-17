@@ -17,16 +17,13 @@ public class Tema5 {
 
 	private static int searchNumber(int[] arr, int n) {
 
-		int counter = 0;
-
 		for (int i = 0; i < arr.length; i++) {
-			counter++;
 
 			if (arr[i] == n) {
-				if (counter == arr.length) {
+				if (i == arr.length - 1) {
 					return -2;
 				} else {
-					return arr[++i];
+					return arr[i + 1];
 				}
 			}
 		}

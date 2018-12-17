@@ -11,8 +11,8 @@ public class Patrat {
 		this.lungimeLatura = lungimeLatura;
 	}
 
-	public void getArea() {
+	public int getArea() {
 
-		System.out.println(lungimeLatura * lungimeLatura);
+		return lungimeLatura * lungimeLatura;
 	}
 }

@@ -6,7 +6,7 @@ package Teme3;
 public class Palindromm {
 	public static void main(String[] args) {
 
-		int pali = 17;
+		int pali = 1;
 		palindrom(pali);
 
 	}
@@ -14,9 +14,9 @@ public class Palindromm {
 	private static void palindrom(int pali) {
 		int rest;
 		int reversePali = 0;
-		int originalPali;
+		// int originalPali;
 
-		originalPali = pali;
+		// originalPali = pali;
 		while (pali > 0) {
 			rest = pali % 10;
 			reversePali = (reversePali * 10) + rest;
@@ -24,7 +24,7 @@ public class Palindromm {
 
 		}
 
-		if (reversePali == originalPali) {
+		if (reversePali == pali) {
 			System.out.println("Palindom");
 		} else {
 			System.out.println("Not Palindrom");
