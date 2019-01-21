@@ -22,10 +22,10 @@
 package Teme7;
 
 public class Locomotiva {
-	private int id;
+	private String id;
 	private double vitezaMaxima;
 
-	public Locomotiva(int id, double vitezaMax) {
+	public Locomotiva(String id, double vitezaMax) {
 		this.id = id;
 		this.vitezaMaxima = vitezaMax;
 	}
@@ -34,7 +34,7 @@ public class Locomotiva {
 		return this.vitezaMaxima;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 

@@ -3,15 +3,15 @@
 package Teme7;
 
 public class VagonMarfa {
-	private int id;
+	private String id;
 	private double greutate;
 
-	public VagonMarfa(int id, double greutate) {
+	public VagonMarfa(String id, double greutate) {
 		this.id = id;
 		this.greutate = greutate;
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 

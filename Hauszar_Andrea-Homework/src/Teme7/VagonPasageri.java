@@ -4,15 +4,15 @@ package Teme7;
 
 public class VagonPasageri {
 	private int numarMaxPasageri;
-	private int id;
+	private String id;
 	private double greutate;
 
-	public VagonPasageri(int id, double greutate) {
+	public VagonPasageri(String id, double greutate) {
 		this.id = id;
 		this.greutate = greutate;
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
@@ -24,7 +24,7 @@ public class VagonPasageri {
 		this.greutate = greutate;
 	}
 
-	public VagonPasageri(int id, double greutate, int numarPas) {
+	public VagonPasageri(String id, double greutate, int numarPas) {
 		this.id = id;
 		this.greutate = greutate;
 		this.numarMaxPasageri = numarPas;
