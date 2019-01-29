@@ -2,12 +2,19 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 
-public class Results implements Serializable {
+public class Result implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int practicalTestGradeImplementation;
-	private int practicalTestGradeFunctionality;
-	private int testMcNrCorrectAnswers;
+	private Test test;
+
+	public Result(Test test) {
+		super();
+		this.test = test;
+	}
+
+//	private int practicalTestGradeImplementation;
+//	private int practicalTestGradeFunctionality;
+//	private int testMcNrCorrectAnswers;
 
 //	public Results(int testMcNrCorrectAnswers, int practicalTestGradeFunctionality,
 //			int practicalTestGradeImplementation) {

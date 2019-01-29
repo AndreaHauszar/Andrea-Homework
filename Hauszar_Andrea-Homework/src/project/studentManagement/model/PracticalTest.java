@@ -2,7 +2,7 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 
-public class PracticalTest extends Tests implements Serializable {
+public class PracticalTest extends Test implements Serializable {
 	public PracticalTest(String testID) {
 		super(testID);
 	}

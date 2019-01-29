@@ -18,8 +18,8 @@ public class AddStudentsAction extends MenuItem {
 
 		// do something with values
 
-		Student student = new Student(name);
-		ApplicationSession.getInstance().getDatabase().addStudent();
+		Student student = new Student(studentName);
+		ApplicationSession.getInstance().getDatabase().addStudent(student);
 	}
 
 }

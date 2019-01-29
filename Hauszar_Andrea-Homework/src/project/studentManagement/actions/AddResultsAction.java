@@ -6,7 +6,10 @@ import project.core.keyboard.Keyboard;
 import project.core.menu.MenuItem;
 import project.studentManagement.ApplicationSession;
 import project.studentManagement.model.Database;
-import project.studentManagement.model.Tests;
+import project.studentManagement.model.Result;
+import project.studentManagement.model.ResultG;
+import project.studentManagement.model.ResultP;
+import project.studentManagement.model.Test;
 
 public class AddResultsAction extends MenuItem {
 	private Keyboard keyboard = Keyboard.getInstance();
@@ -26,25 +29,29 @@ public class AddResultsAction extends MenuItem {
 
 		Database db = ApplicationSession.getInstance().getDatabase();
 		String testID = keyboard.getString("TestID: ");
-		Tests test = db.getTestID(testID);
+		Test test = db.getTestID(testID);
+		Result result = null;
+
 		if (testID == null) {
 			System.out.println("TestID does not exist !!!");
 			return;
 		} else {
 			char firstLetter = testID.charAt(0);
+
 			if (firstLetter == 'G') {
 				int testMcNrCorrectAnswers = keyboard.getInt("Numar Raspunsuri Corecte la Test Grila: ");
+				result = new ResultG(test, testMcNrCorrectAnswers);
 			} else {
 				if (firstLetter == 'P') {
 					int practicalTestGradeImplementation = keyboard.getInt("Nota Implementare: ");
 					int practicalTestGradeFunctionality = keyboard.getInt("Nota Functionalitate: ");
+					result = new ResultP(test, practicalTestGradeImplementation, practicalTestGradeFunctionality);
 				}
 				System.out.println("Test does not exist !!!");
 			}
 
 		}
-//		Results results = new Results(date, studentName, testID, testMcNrCorrectAnswers,practicalTestGradeImplementation, practicalTestGradeFunctionality);
-//		ApplicationSession.getInstance().getDatabase().addResults(results);
+		ApplicationSession.getInstance().getDatabase().addResults(result);
 
 // !! ori setez cumva sa imi arate null la notele de la testul practic daca eu am introdus nota pt test grila
 // !! ori trebuie sa schimb cela de aici din results de la final 

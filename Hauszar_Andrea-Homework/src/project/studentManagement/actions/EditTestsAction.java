@@ -4,7 +4,7 @@ import project.core.keyboard.Keyboard;
 import project.core.menu.MenuItem;
 import project.studentManagement.ApplicationSession;
 import project.studentManagement.model.Database;
-import project.studentManagement.model.Tests;
+import project.studentManagement.model.Test;
 
 public class EditTestsAction extends MenuItem {
 	private Keyboard keyboard = Keyboard.getInstance();
@@ -17,7 +17,7 @@ public class EditTestsAction extends MenuItem {
 	public void doAction() {
 		Database db = ApplicationSession.getInstance().getDatabase();
 		String testID = keyboard.getString("TestID: ");
-		Tests test = db.getTestID(testID);
+		Test test = db.getTestID(testID);
 		if (testID == null) {
 			System.out.println("TestID does not exist !!!");
 			return;

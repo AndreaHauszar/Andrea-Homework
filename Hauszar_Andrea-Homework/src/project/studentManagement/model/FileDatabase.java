@@ -12,9 +12,9 @@ public class FileDatabase implements Database, Serializable {
 
 	private List<Student> students = new ArrayList<Student>();
 
-	private List<Tests> tests = new ArrayList<Tests>();
+	private List<Test> tests = new ArrayList<Test>();
 
-	private List<Results> results = new ArrayList<Results>();
+	private List<Result> results = new ArrayList<Result>();
 
 	@Override
 	public void addStudent(Student student) {
@@ -24,14 +24,14 @@ public class FileDatabase implements Database, Serializable {
 	}
 
 	@Override
-	public void addTests(Tests test) {
+	public void addTests(Test test) {
 		tests.add(test);
 		Serializer serializer = ApplicationSession.getInstance().getSerializer();
 		serializer.save(this);
 	}
 
 	@Override
-	public void addResults(Results result) {
+	public void addResults(Result result) {
 		results.add(result);
 		Serializer serializer = ApplicationSession.getInstance().getSerializer();
 		serializer.save(this);
@@ -98,7 +98,7 @@ public class FileDatabase implements Database, Serializable {
 	}
 
 	@Override
-	public Tests getTestID(String testID) {
+	public Test getTestID(String testID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -107,6 +107,32 @@ public class FileDatabase implements Database, Serializable {
 	public void editTestID(String testID) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Student getStudentByName(String name) {
+		for (Student stud : students) {
+			if (stud.hasName(name)) {
+				return stud;
+			}
+		}
+
+		return null;
+	}
+
+	@Override
+	public void deleteStudent(String name) {
+		students.remove(new Student(name));
+
+//		Iterator<Student> iterator = students.iterator();
+//		while (iterator.hasNext()) {
+//			Student stud = iterator.next();
+//			if (stud.hasName(name)) {
+//				iterator.remove();
+//			}
+//		}
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
 	}
 
 }

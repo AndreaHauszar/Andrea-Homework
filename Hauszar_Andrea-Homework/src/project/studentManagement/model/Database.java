@@ -13,13 +13,17 @@ public interface Database {
 
 	void addStudent(Student student);
 
-	void addTests(Tests test);
+	void addTests(Test test);
 
-	void addResults(Results result);
+	void addResults(Result result);
 
-	Tests getTestID(String testID);
+	Test getTestID(String testID);
 
 	void editTestID(String testID);
+
+	Student getStudentByName(String name);
+
+	void deleteStudent(String name);
 
 //	Reading getPreviousReadingByYearAndMonth(int year, int month);
 

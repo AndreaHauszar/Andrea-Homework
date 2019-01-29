@@ -2,7 +2,7 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 
-public class Tests implements Serializable {
+public class Test implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String testID;
@@ -15,7 +15,7 @@ public class Tests implements Serializable {
 		this.testID = testID;
 	}
 
-	public Tests(String testID) {
+	public Test(String testID) {
 		this.testID = testID;
 
 	}

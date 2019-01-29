@@ -2,7 +2,7 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 
-public class MultipleChoiseTest extends Tests implements Serializable {
+public class MultipleChoiseTest extends Test implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public MultipleChoiseTest(String testID) {
