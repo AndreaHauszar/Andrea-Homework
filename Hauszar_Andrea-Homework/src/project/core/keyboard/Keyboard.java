@@ -1,9 +1,14 @@
 package project.core.keyboard;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Keyboard {
 	private Scanner kb = new Scanner(System.in);
+
+	private static final String DATE_FORMAT = "dd.MM.yyyy";
 
 	private static Keyboard instance = new Keyboard();
 
@@ -17,8 +22,7 @@ public class Keyboard {
 
 	public String getString(String message) {
 		System.out.print(message);
-		String value = kb.toString();
-		kb.nextLine();
+		String value = kb.nextLine();
 		return value;
 	}
 
@@ -27,6 +31,20 @@ public class Keyboard {
 		int value = kb.nextInt();
 		kb.nextLine();
 		return value;
+	}
+
+	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+
+	public Date getDate(String message) {
+		while (true) {
+			try {
+				System.out.print(message + "[" + DATE_FORMAT + "]");
+				String text = kb.nextLine();
+				return sdf.parse(text);
+			} catch (ParseException e) {
+				System.out.println("Invalid date!!!");
+			}
+		}
 	}
 
 }

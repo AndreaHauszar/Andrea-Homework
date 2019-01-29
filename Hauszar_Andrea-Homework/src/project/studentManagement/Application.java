@@ -3,16 +3,18 @@ package project.studentManagement;
 import project.core.menu.BackAction;
 import project.core.menu.Menu;
 import project.core.menu.MenuItem;
-import project.studentManagement.actions.AddActionResults;
-import project.studentManagement.actions.AddActionStudents;
-import project.studentManagement.actions.AddActionTests;
-import project.studentManagement.actions.DeleteActionResults;
-import project.studentManagement.actions.DeleteActionStudents;
-import project.studentManagement.actions.DeleteActionTests;
-import project.studentManagement.actions.EditActionResults;
-import project.studentManagement.actions.EditActionStudents;
-import project.studentManagement.actions.EditActionTests;
-import project.studentManagement.actions.ReviewActionResults;
+import project.studentManagement.actions.AddResultsAction;
+import project.studentManagement.actions.AddStudentsAction;
+import project.studentManagement.actions.AddTestsAction;
+import project.studentManagement.actions.DeleteResultsAction;
+import project.studentManagement.actions.DeleteStudentsAction;
+import project.studentManagement.actions.DeleteTestsAction;
+import project.studentManagement.actions.EditResultsAction;
+import project.studentManagement.actions.EditStudentsAction;
+import project.studentManagement.actions.EditTestsAction;
+import project.studentManagement.actions.ReviewResultsAction;
+import project.studentManagement.model.Database;
+import project.studentManagement.utils.Serializer;
 
 public class Application {
 	public static void main(String[] args) {
@@ -21,21 +23,29 @@ public class Application {
 	}
 
 	private void run() {
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		Database database = serializer.load();
+		if (database == null) {
+			return;
+		}
+
+		ApplicationSession.getInstance().setDatabase(database);
+
 		MenuItem mainMenu = createMenu();
 		mainMenu.doAction();
 	}
 
 	private MenuItem createMenu() {
-		MenuItem addStudent = new AddActionStudents();
-		MenuItem editStudent = new EditActionStudents();
-		MenuItem deleteStudent = new DeleteActionStudents();
-		MenuItem addTest = new AddActionTests();
-		MenuItem editTest = new EditActionTests();
-		MenuItem deleteTest = new DeleteActionTests();
-		MenuItem addResults = new AddActionResults();
-		MenuItem editResults = new EditActionResults();
-		MenuItem deleteResult = new DeleteActionResults();
-		MenuItem reviewResult = new ReviewActionResults();
+		MenuItem addStudent = new AddStudentsAction();
+		MenuItem editStudent = new EditStudentsAction();
+		MenuItem deleteStudent = new DeleteStudentsAction();
+		MenuItem addTest = new AddTestsAction();
+		MenuItem editTest = new EditTestsAction();
+		MenuItem deleteTest = new DeleteTestsAction();
+		MenuItem addResults = new AddResultsAction();
+		MenuItem editResults = new EditResultsAction();
+		MenuItem deleteResult = new DeleteResultsAction();
+		MenuItem reviewResult = new ReviewResultsAction();
 
 		BackAction back = new BackAction("0", "Back");
 

@@ -2,8 +2,8 @@ package project.studentManagement.actions;
 
 import project.core.menu.MenuItem;
 
-public class EditActionTests extends MenuItem {
-	public EditActionTests() {
+public class EditResultsAction extends MenuItem {
+	public EditResultsAction() {
 		super("2", "Edit");
 	}
 

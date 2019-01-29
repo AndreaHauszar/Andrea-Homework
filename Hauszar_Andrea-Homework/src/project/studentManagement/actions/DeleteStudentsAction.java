@@ -2,9 +2,9 @@ package project.studentManagement.actions;
 
 import project.core.menu.MenuItem;
 
-public class DeleteActionTests extends MenuItem {
+public class DeleteStudentsAction extends MenuItem {
 
-	public DeleteActionTests() {
+	public DeleteStudentsAction() {
 		super("3", "Delete");
 	}
 
