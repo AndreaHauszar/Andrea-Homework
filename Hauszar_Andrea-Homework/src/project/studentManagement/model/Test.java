@@ -2,10 +2,10 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 
-public class Test implements Serializable {
+public abstract class Test implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String testID;
+	protected String testID;
 
 	public String getTestID() {
 		return testID;
@@ -24,10 +24,7 @@ public class Test implements Serializable {
 		return testID.equals(testID2);
 	}
 
-	public void edit(String testID2) {
-		testID = testID2;
-
-	}
+	public abstract void edit(Object... params);
 
 	@Override
 	public String toString() {

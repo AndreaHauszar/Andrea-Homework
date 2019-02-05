@@ -9,7 +9,6 @@ public class GTest extends Test implements Serializable {
 		super(testID);
 	}
 
-	private String testID;
 	private int NrQuestions;
 
 	public GTest(String testID, int testMcNrQuestions) {
@@ -32,6 +31,12 @@ public class GTest extends Test implements Serializable {
 	@Override
 	public String toString() {
 		return testID + " " + NrQuestions;
+	}
+
+	@Override
+	public void edit(Object... params) {
+		this.testID = (String) params[0];
+		this.NrQuestions = (int) params[1];
 	}
 
 }

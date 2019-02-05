@@ -5,8 +5,8 @@ public class ResultP extends Result {
 	private int gradeFunctionality;
 	private int gradeImplementation;
 
-	public ResultP(Test test, int notaFunc, int notaImpl) {
-		super(test);
+	public ResultP(Test test, int notaFunc, int notaImpl, Student student) {
+		super(test, student);
 		this.gradeFunctionality = notaFunc;
 		this.gradeImplementation = notaImpl;
 	}

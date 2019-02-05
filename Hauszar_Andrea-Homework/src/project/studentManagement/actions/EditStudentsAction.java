@@ -17,14 +17,14 @@ public class EditStudentsAction extends MenuItem {
 	public void doAction() {
 		Database db = ApplicationSession.getInstance().getDatabase();
 		String studentName = keyboard.getString("Student Name: ");
-		Student student = db.getStudentByName(name);
-		if (name == null) {
+		Student student = db.getStudentByName(studentName);
+		if (student == null) {
 			System.out.println("Name does not exist !!!");
 			return;
 		}
 
 		String newname = keyboard.getString("New Student Name: ");
 
-		db.editStudentName(name, newname);
+		db.editStudentName(studentName, newname);
 	}
 }

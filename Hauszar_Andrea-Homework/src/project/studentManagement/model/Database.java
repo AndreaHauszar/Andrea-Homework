@@ -26,6 +26,8 @@ public interface Database {
 
 	void editStudentName(String name, String newname);
 
+	List<Result> getResults();
+
 //	Reading getPreviousReadingByYearAndMonth(int year, int month);
 
 }

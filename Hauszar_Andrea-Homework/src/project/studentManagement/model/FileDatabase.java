@@ -84,8 +84,13 @@ public class FileDatabase implements Database, Serializable {
 	}
 
 	@Override
-	public Test getTestID(String testID) {
-		// TODO Auto-generated method stub
+	public Test getTestID(String id) {
+		for (Test test : tests) {
+			if (test.hasTestID(id)) {
+				return test;
+			}
+		}
+
 		return null;
 	}
 
@@ -109,6 +114,11 @@ public class FileDatabase implements Database, Serializable {
 		results.add(result);
 		Serializer serializer = ApplicationSession.getInstance().getSerializer();
 		serializer.save(this);
+	}
+
+	@Override
+	public List<Result> getResults() {
+		return results;
 	}
 
 //	@Override

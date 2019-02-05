@@ -6,10 +6,12 @@ public class Result implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Test test;
+	private Student student;
 
-	public Result(Test test) {
+	public Result(Test test, Student stud) {
 		super();
 		this.test = test;
+		student = stud;
 	}
 
 //	private int practicalTestGradeImplementation;
