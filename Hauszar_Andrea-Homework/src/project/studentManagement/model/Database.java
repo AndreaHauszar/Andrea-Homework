@@ -20,7 +20,11 @@ public interface Database {
 
 	void deleteStudent(String name);
 
-	void editStudentName(String name);
+	void deleteTestID(String testID);
+
+	List<Test> getTestID();
+
+	void editStudentName(String name, String newname);
 
 //	Reading getPreviousReadingByYearAndMonth(int year, int month);
 

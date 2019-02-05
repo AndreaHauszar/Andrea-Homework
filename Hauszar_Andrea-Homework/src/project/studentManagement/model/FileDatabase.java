@@ -2,6 +2,7 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import project.studentManagement.ApplicationSession;
@@ -17,6 +18,27 @@ public class FileDatabase implements Database, Serializable {
 	private List<Result> results = new ArrayList<Result>();
 
 	@Override
+	public List<Student> getStudentName() {
+		return students;
+	}
+
+	@Override
+	public List<Test> getTestID() {
+		return tests;
+	}
+
+	@Override
+	public Student getStudentByName(String name) {
+		for (Student stud : students) {
+			if (stud.hasName(name)) {
+				return stud;
+			}
+		}
+
+		return null;
+	}
+
+	@Override
 	public void addStudent(Student student) {
 		students.add(student);
 		Serializer serializer = ApplicationSession.getInstance().getSerializer();
@@ -24,8 +46,60 @@ public class FileDatabase implements Database, Serializable {
 	}
 
 	@Override
+	public void editStudentName(String name, String newname) {
+		Student student = getStudentByName(name);
+		student.edit(newname);
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
+	}
+
+	@Override
+	public void deleteStudent(String name) {
+//		students.remove(new Student(name));
+
+		Iterator<Student> iterator = students.iterator();
+		while (iterator.hasNext()) {
+			Student stud = iterator.next();
+			if (stud.hasName(name)) {
+				iterator.remove();
+			}
+		}
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
+	}
+
+	@Override
 	public void addTests(Test test) {
 		tests.add(test);
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
+	}
+
+	@Override
+	public void editTestID(String testID) {
+		Test test = getTestID(testID);
+		test.edit(testID);
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
+	}
+
+	@Override
+	public Test getTestID(String testID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteTestID(String testID) {
+//		students.remove(new Student(name));
+
+		Iterator<Test> iterator = tests.iterator();
+		while (iterator.hasNext()) {
+			Test test = iterator.next();
+			if (test.hasTestID(testID)) {
+				iterator.remove();
+			}
+		}
 		Serializer serializer = ApplicationSession.getInstance().getSerializer();
 		serializer.save(this);
 	}
@@ -54,12 +128,7 @@ public class FileDatabase implements Database, Serializable {
 //		Serializer serializer = ApplicationSession.getInstance().getSerializer();
 //		serializer.save(this);
 //	}
-//
-//	@Override
-//	public List<Reading> getReadings() {
-//		return readings;
-//	}
-//
+	//
 //	@Override
 //	public Reading getPreviousReadingByYearAndMonth(int year, int month) {
 //		int previousYear = year;
@@ -72,57 +141,5 @@ public class FileDatabase implements Database, Serializable {
 //
 //		return getReadingByYearAndMonth(previousYear, previousMonth);
 //	}
-
-	@Override
-	public Student getStudentByName(String name) {
-		for (Student stud : students) {
-			if (stud.hasName(name)) {
-				return stud;
-			}
-		}
-
-		return null;
-	}
-
-	@Override
-	public void deleteStudent(String name) {
-		students.remove(new Student(name));
-
-//		Iterator<Student> iterator = students.iterator();
-//		while (iterator.hasNext()) {
-//			Student stud = iterator.next();
-//			if (stud.hasName(name)) {
-//				iterator.remove();
-//			}
-//		}
-		Serializer serializer = ApplicationSession.getInstance().getSerializer();
-		serializer.save(this);
-	}
-
-	@Override
-	public void editStudentName(String name) {
-//		Student student = 
-//				
-//		Serializer serializer = ApplicationSession.getInstance().getSerializer();
-//		serializer.save(this);
-	}
-
-	@Override
-	public List<Student> getStudentName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Test getTestID(String testID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void editTestID(String testID) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

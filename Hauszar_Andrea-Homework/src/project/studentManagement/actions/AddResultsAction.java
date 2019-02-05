@@ -39,13 +39,13 @@ public class AddResultsAction extends MenuItem {
 			char firstLetter = testID.charAt(0);
 
 			if (firstLetter == 'G') {
-				int testMcNrCorrectAnswers = keyboard.getInt("Numar Raspunsuri Corecte la Test Grila: ");
-				result = new ResultG(test, testMcNrCorrectAnswers);
+				int correctAnswers = keyboard.getInt("Numar Raspunsuri Corecte la Test Grila: ");
+				result = new ResultG(test, correctAnswers);
 			} else {
 				if (firstLetter == 'P') {
-					int practicalTestGradeImplementation = keyboard.getInt("Nota Implementare: ");
-					int practicalTestGradeFunctionality = keyboard.getInt("Nota Functionalitate: ");
-					result = new ResultP(test, practicalTestGradeImplementation, practicalTestGradeFunctionality);
+					int gradeImplementation = keyboard.getInt("Nota Implementare: ");
+					int gradeFunctionality = keyboard.getInt("Nota Functionalitate: ");
+					result = new ResultP(test, gradeImplementation, gradeFunctionality);
 				}
 				System.out.println("Test does not exist !!!");
 			}

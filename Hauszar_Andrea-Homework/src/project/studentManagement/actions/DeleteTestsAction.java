@@ -1,8 +1,11 @@
 package project.studentManagement.actions;
 
+import project.core.keyboard.Keyboard;
 import project.core.menu.MenuItem;
+import project.studentManagement.ApplicationSession;
 
 public class DeleteTestsAction extends MenuItem {
+	private Keyboard keyboard = Keyboard.getInstance();
 
 	public DeleteTestsAction() {
 		super("3", "Delete");
@@ -10,8 +13,8 @@ public class DeleteTestsAction extends MenuItem {
 
 	@Override
 	public void doAction() {
-		System.out.println("Aici stergem ceva");
-
+		String testID = keyboard.getString("TestID: ");
+		ApplicationSession.getInstance().getDatabase().deleteTestID(testID);
 	}
 
 }

@@ -23,8 +23,8 @@ public class EditStudentsAction extends MenuItem {
 			return;
 		}
 
-		String name = keyboard.getString("New Student Name: ");
+		String newname = keyboard.getString("New Student Name: ");
 
-		db.editStudentName(studentName);
+		db.editStudentName(name, newname);
 	}
 }
