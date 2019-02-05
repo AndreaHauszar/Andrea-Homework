@@ -9,6 +9,7 @@ import project.studentManagement.model.Database;
 import project.studentManagement.model.Result;
 import project.studentManagement.model.ResultG;
 import project.studentManagement.model.ResultP;
+import project.studentManagement.model.Student;
 import project.studentManagement.model.Test;
 
 public class AddResultsAction extends MenuItem {
@@ -28,8 +29,11 @@ public class AddResultsAction extends MenuItem {
 		// EditTestAction - dar nu stiu cum sa o folosesc - plus ca e putin diferita
 
 		Database db = ApplicationSession.getInstance().getDatabase();
+
 		String testID = keyboard.getString("TestID: ");
 		Test test = db.getTestID(testID);
+		// la fel si pentru Student...
+		Student student = null; // ....... aici schimbi ca sa nu fie null
 		Result result = null;
 
 		if (testID == null) {
@@ -40,12 +44,12 @@ public class AddResultsAction extends MenuItem {
 
 			if (firstLetter == 'G') {
 				int correctAnswers = keyboard.getInt("Numar Raspunsuri Corecte la Test Grila: ");
-				result = new ResultG(test, correctAnswers);
+				result = new ResultG(test, correctAnswers, student);
 			} else {
 				if (firstLetter == 'P') {
 					int gradeImplementation = keyboard.getInt("Nota Implementare: ");
 					int gradeFunctionality = keyboard.getInt("Nota Functionalitate: ");
-					result = new ResultP(test, gradeImplementation, gradeFunctionality);
+					result = new ResultP(test, gradeImplementation, gradeFunctionality, student);
 				}
 				System.out.println("Test does not exist !!!");
 			}
