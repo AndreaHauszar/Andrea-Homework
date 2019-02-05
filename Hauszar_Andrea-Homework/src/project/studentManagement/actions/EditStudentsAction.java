@@ -17,7 +17,7 @@ public class EditStudentsAction extends MenuItem {
 	public void doAction() {
 		Database db = ApplicationSession.getInstance().getDatabase();
 		String studentName = keyboard.getString("Student Name: ");
-		Student student = db.getStudentName(name);
+		Student student = db.getStudentByName(name);
 		if (name == null) {
 			System.out.println("Name does not exist !!!");
 			return;

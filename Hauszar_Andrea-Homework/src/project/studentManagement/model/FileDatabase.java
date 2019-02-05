@@ -74,42 +74,6 @@ public class FileDatabase implements Database, Serializable {
 //	}
 
 	@Override
-	public void addStudent() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Student getStudentName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void editStudentName(String name) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<Student> getStudentName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Test getTestID(String testID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void editTestID(String testID) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Student getStudentByName(String name) {
 		for (Student stud : students) {
 			if (stud.hasName(name)) {
@@ -133,6 +97,32 @@ public class FileDatabase implements Database, Serializable {
 //		}
 		Serializer serializer = ApplicationSession.getInstance().getSerializer();
 		serializer.save(this);
+	}
+
+	@Override
+	public void editStudentName(String name) {
+//		Student student = 
+//				
+//		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+//		serializer.save(this);
+	}
+
+	@Override
+	public List<Student> getStudentName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Test getTestID(String testID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void editTestID(String testID) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

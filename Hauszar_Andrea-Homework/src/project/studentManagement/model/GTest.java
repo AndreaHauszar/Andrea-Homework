@@ -2,20 +2,20 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 
-public class MultipleChoiseTest extends Test implements Serializable {
+public class GTest extends Test implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public MultipleChoiseTest(String testID) {
+	public GTest(String testID) {
 		super(testID);
 	}
 
 	private String testID;
-	private int testMcNrQuestions;
+	private int NrQuestions;
 
-	public MultipleChoiseTest(String testID, int testMcNrQuestions) {
+	public GTest(String testID, int testMcNrQuestions) {
 		super(testID);
 		this.testID = testID;
-		this.testMcNrQuestions = testMcNrQuestions;
+		this.NrQuestions = testMcNrQuestions;
 
 	}
 
@@ -31,7 +31,7 @@ public class MultipleChoiseTest extends Test implements Serializable {
 
 	@Override
 	public String toString() {
-		return testID + " " + testMcNrQuestions;
+		return testID + " " + NrQuestions;
 	}
 
 }

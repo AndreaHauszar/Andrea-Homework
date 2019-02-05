@@ -3,11 +3,6 @@ package project.studentManagement.model;
 import java.util.List;
 
 public interface Database {
-	void addStudent();
-
-	Student getStudentName(String name);
-
-	void editStudentName(String name);
 
 	List<Student> getStudentName();
 
@@ -24,6 +19,8 @@ public interface Database {
 	Student getStudentByName(String name);
 
 	void deleteStudent(String name);
+
+	void editStudentName(String name);
 
 //	Reading getPreviousReadingByYearAndMonth(int year, int month);
 
