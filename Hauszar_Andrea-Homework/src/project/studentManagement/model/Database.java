@@ -1,5 +1,6 @@
 package project.studentManagement.model;
 
+import java.util.Date;
 import java.util.List;
 
 public interface Database {
@@ -27,6 +28,12 @@ public interface Database {
 	void editStudentName(String name, String newname);
 
 	List<Result> getResults();
+
+	void editCorrectAnswers(Date date, String studentName, String testID);
+
+	Date getDate(Date date);
+
+	void deleteResults(Date date, String name, String testID);
 
 //	Reading getPreviousReadingByYearAndMonth(int year, int month);
 

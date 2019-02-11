@@ -9,4 +9,8 @@ public class ResultG extends Result {
 		this.correctAnswers = corecte;
 	}
 
+	@Override
+	public String toString() {
+		return student + " | " + test + " | " + correctAnswers;
+	}
 }

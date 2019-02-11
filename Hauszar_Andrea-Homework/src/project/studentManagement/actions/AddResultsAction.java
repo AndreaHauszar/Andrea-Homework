@@ -23,17 +23,15 @@ public class AddResultsAction extends MenuItem {
 	public void doAction() {
 		Date date = keyboard.getDate("Date: ");
 		System.out.println(date);
-		String studentName = keyboard.getString("Student Name: ");
-
-		// as vrea sa verific daca exista deja Test ID - am metoda deja in
-		// EditTestAction - dar nu stiu cum sa o folosesc - plus ca e putin diferita
 
 		Database db = ApplicationSession.getInstance().getDatabase();
 
 		String testID = keyboard.getString("TestID: ");
 		Test test = db.getTestID(testID);
-		// la fel si pentru Student...
-		Student student = null; // ....... aici schimbi ca sa nu fie null
+
+		String studentName = keyboard.getString("Student Name: ");
+		Student student = db.getStudentByName(studentName);
+
 		Result result = null;
 
 		if (testID == null) {

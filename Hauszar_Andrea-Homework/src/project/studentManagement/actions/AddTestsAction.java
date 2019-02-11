@@ -27,7 +27,7 @@ public class AddTestsAction extends MenuItem {
 		char firstLetter = testID.charAt(0);
 		Test test = null;
 		if (firstLetter == 'G') {
-			int NrQuestions = keyboard.getInt("Numar intrebari Test Grila: ");// MC = multiple choice test
+			int NrQuestions = keyboard.getInt("Numar intrebari Test Grila: ");
 			test = new GTest(testID, NrQuestions);
 		} else if (firstLetter == 'P') {
 			test = new PTest(testID);

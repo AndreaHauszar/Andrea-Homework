@@ -10,4 +10,9 @@ public class ResultP extends Result {
 		this.gradeFunctionality = notaFunc;
 		this.gradeImplementation = notaImpl;
 	}
+
+	@Override
+	public String toString() {
+		return student + " | " + test + " | " + gradeFunctionality + " | " + gradeImplementation;
+	}
 }

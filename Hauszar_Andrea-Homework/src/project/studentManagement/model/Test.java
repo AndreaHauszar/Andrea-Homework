@@ -31,4 +31,20 @@ public abstract class Test implements Serializable {
 		return testID;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Test other = (Test) obj;
+		if (testID == null) {
+			if (other.testID != null)
+				return false;
+		} else if (!testID.equals(other.testID))
+			return false;
+		return true;
+	}
 }

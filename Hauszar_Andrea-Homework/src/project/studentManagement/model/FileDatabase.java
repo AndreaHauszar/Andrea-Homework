@@ -2,6 +2,7 @@ package project.studentManagement.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class FileDatabase implements Database, Serializable {
 
 	private List<Result> results = new ArrayList<Result>();
 
+	private List<Date> dates = new ArrayList<Date>();
+
 	@Override
 	public List<Student> getStudentName() {
 		return students;
@@ -25,6 +28,25 @@ public class FileDatabase implements Database, Serializable {
 	@Override
 	public List<Test> getTestID() {
 		return tests;
+	}
+
+	@Override
+	public List<Result> getResults() {
+		return results;
+	}
+
+	public List<Date> getDate() {
+		return dates;
+	}
+
+	@Override
+	public Date getDate(Date date) {
+		for (Date dte : dates) {
+			if (dte.compareTo(date) == 0) {
+				return dte;
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -117,9 +139,38 @@ public class FileDatabase implements Database, Serializable {
 	}
 
 	@Override
-	public List<Result> getResults() {
-		return results;
+	public void editCorrectAnswers(Date date, String studentName, String testID) {
+
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
 	}
+
+	@Override
+	public void deleteResults(Date date, String name, String testID) {
+		Iterator<Result> iterator = results.iterator();
+		while (iterator.hasNext()) {
+			Result r = iterator.next();
+			if (r.hasNameAndTestID(name, testID)) {
+				iterator.remove();
+			}
+		}
+		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+		serializer.save(this);
+	}
+
+//	if (firstLetter == 'G') {
+//		int newCorrectAnswers = keyboard.getInt("Noul Numar de Raspunsuri Corecte la Testul Grila: ");
+//		db.editCorrectAnswers(date, studentName, testID);
+//		// result = new ResultG(test, NewCorrectAnswers, name);
+//	
+
+//	@Override
+//	public void editResult(String testID) {
+//		Test test = getTestID(testID);
+//		test.edit(testID);
+//		Serializer serializer = ApplicationSession.getInstance().getSerializer();
+//		serializer.save(this);
+//	}
 
 //	@Override
 //	public Reading getReadingByYearAndMonth(int year, int month) {

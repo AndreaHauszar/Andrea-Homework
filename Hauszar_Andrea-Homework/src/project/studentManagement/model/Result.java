@@ -5,13 +5,18 @@ import java.io.Serializable;
 public class Result implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Test test;
-	private Student student;
+	protected Test test;
+	protected Student student;
 
 	public Result(Test test, Student stud) {
 		super();
 		this.test = test;
 		student = stud;
+	}
+
+	public boolean hasNameAndTestID(String name2, String testID2) {
+
+		return student.equals(name2) && test.equals(testID2);
 	}
 
 //	private int practicalTestGradeImplementation;
