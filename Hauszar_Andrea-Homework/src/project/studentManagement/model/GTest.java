@@ -39,4 +39,12 @@ public class GTest extends Test implements Serializable {
 		this.NrQuestions = (int) params[1];
 	}
 
+	public int getNrQuestions() {
+		return NrQuestions;
+	}
+
+	public void setNrQuestions(int nrQuestions) {
+		NrQuestions = nrQuestions;
+	}
+
 }

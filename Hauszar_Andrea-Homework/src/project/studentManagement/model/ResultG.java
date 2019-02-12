@@ -13,4 +13,15 @@ public class ResultG extends Result {
 	public String toString() {
 		return student + " | " + test + " | " + correctAnswers;
 	}
+
+	@Override
+	public void edit(Object... params) {
+		this.correctAnswers = (int) params[0];
+	}
+
+	@Override
+	public double getNota() {
+		return (double) correctAnswers / ((GTest) test).getNrQuestions() * 10;
+	}
+
 }

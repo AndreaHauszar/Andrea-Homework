@@ -15,4 +15,15 @@ public class ResultP extends Result {
 	public String toString() {
 		return student + " | " + test + " | " + gradeFunctionality + " | " + gradeImplementation;
 	}
+
+	@Override
+	public void edit(Object... params) {
+		this.gradeFunctionality = (int) params[0];
+		this.gradeImplementation = (int) params[1];
+	}
+
+	@Override
+	public double getNota() {
+		return (gradeFunctionality + gradeImplementation) / 2;
+	}
 }

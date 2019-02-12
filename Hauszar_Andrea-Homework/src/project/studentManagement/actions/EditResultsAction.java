@@ -32,8 +32,8 @@ public class EditResultsAction extends MenuItem {
 			return;
 		}
 
-		Student name = db.getStudentByName(studentName);
-		if (name == null) {
+		Student student = db.getStudentByName(studentName);
+		if (student == null) {
 			System.out.println("Student does not exist !!!");
 			return;
 		}
@@ -47,16 +47,15 @@ public class EditResultsAction extends MenuItem {
 		char firstLetter = testID.charAt(0);
 		if (firstLetter == 'G') {
 			int newCorrectAnswers = keyboard.getInt("Noul Numar de Raspunsuri Corecte la Testul Grila: ");
-			db.editCorrectAnswers(date, studentName, testID);
+			db.editResult(studentName, testID, newCorrectAnswers);
+			// db.editCorrectAnswers(date, studentName, testID);
 			// result = new ResultG(test, NewCorrectAnswers, name);
-		} else {
-			if (firstLetter == 'P') {
-				int newGradeImplementation = keyboard.getInt("Noua Nota Implementare: ");
-				int newGradeFunctionality = keyboard.getInt("Noua Nota Functionalitate: ");
-				// result = new ResultP(test, newGradeImplementation, newGradeFunctionality,
-				// name);
-			}
-			System.out.println("Test does not exist !!!");
+		} else if (firstLetter == 'P') {
+			int newGradeImplementation = keyboard.getInt("Noua Nota Implementare: ");
+			int newGradeFunctionality = keyboard.getInt("Noua Nota Functionalitate: ");
+			db.editResult(studentName, testID, newGradeImplementation, newGradeFunctionality);
+			// result = new ResultP(test, newGradeImplementation, newGradeFunctionality,
+			// name);
 		}
 
 	}

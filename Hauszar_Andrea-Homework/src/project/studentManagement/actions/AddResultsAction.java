@@ -49,7 +49,6 @@ public class AddResultsAction extends MenuItem {
 					int gradeFunctionality = keyboard.getInt("Nota Functionalitate: ");
 					result = new ResultP(test, gradeImplementation, gradeFunctionality, student);
 				}
-				System.out.println("Test does not exist !!!");
 			}
 
 		}

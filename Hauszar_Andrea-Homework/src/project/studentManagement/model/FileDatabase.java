@@ -158,6 +158,43 @@ public class FileDatabase implements Database, Serializable {
 		serializer.save(this);
 	}
 
+	@Override
+	public void editResult(String name, String testid, Object... params) {
+		Result result = getResultByStudentTest(name, testid);
+		result.edit(params);
+	}
+
+	private Result getResultByStudentTest(String name, String testid) {
+		for (Result result : results) {
+			if (result.hasNameAndTestID(name, testid)) {
+				return result;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public List<Student> getStudents() {
+		// TODO Auto-generated method stub
+		return students;
+	}
+
+	@Override
+	public List<Test> getTests() {
+		// TODO Auto-generated method stub
+		return tests;
+	}
+
+	@Override
+	public Result getResultByStudentAndTest(Student student, Test test) {
+		for (Result result : results) {
+			if (result.hasStudentAndTest(student, test)) {
+				return result;
+			}
+		}
+		return null;
+	}
+
 //	if (firstLetter == 'G') {
 //		int newCorrectAnswers = keyboard.getInt("Noul Numar de Raspunsuri Corecte la Testul Grila: ");
 //		db.editCorrectAnswers(date, studentName, testID);

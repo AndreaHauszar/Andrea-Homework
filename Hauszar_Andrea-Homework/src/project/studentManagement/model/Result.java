@@ -1,8 +1,9 @@
 package project.studentManagement.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class Result implements Serializable {
+public abstract class Result implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	protected Test test;
@@ -16,8 +17,21 @@ public class Result implements Serializable {
 
 	public boolean hasNameAndTestID(String name2, String testID2) {
 
-		return student.equals(name2) && test.equals(testID2);
+		return student.hasName(name2) && test.hasTestID(testID2);
 	}
+
+	public abstract void edit(Object... params);
+
+	public boolean hasDateStudentTest(Date date, Student student2, Test test2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean hasStudentAndTest(Student student2, Test test2) {
+		return student == student2 && test == test2;
+	}
+
+	public abstract double getNota();
 
 //	private int practicalTestGradeImplementation;
 //	private int practicalTestGradeFunctionality;

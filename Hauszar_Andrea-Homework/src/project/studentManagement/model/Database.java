@@ -35,6 +35,14 @@ public interface Database {
 
 	void deleteResults(Date date, String name, String testID);
 
+	void editResult(String studentName, String testID, Object... params);
+
+	List<Student> getStudents();
+
+	List<Test> getTests();
+
+	Result getResultByStudentAndTest(Student student, Test test);
+
 //	Reading getPreviousReadingByYearAndMonth(int year, int month);
 
 }

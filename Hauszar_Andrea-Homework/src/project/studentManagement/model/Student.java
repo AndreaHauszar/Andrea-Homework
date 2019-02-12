@@ -55,4 +55,9 @@ public class Student implements Serializable {
 		return true;
 	}
 
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
 }
